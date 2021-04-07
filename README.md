@@ -24,7 +24,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 🤔 Como contribuir
 
 ```bash
-- Faça um fork desse repositório;
+- Faça um fork desse repositório: `https://github.com/GCarin1/CodeDelivery.git`;
 - Cria uma branch com a sua feature: `git checkout -b minha-feature`;
 - Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`; 
 - Faça push para a sua branch: `git push origin minha-feature`.
