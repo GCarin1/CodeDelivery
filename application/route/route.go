@@ -10,26 +10,32 @@ import (
 )
 
 type Route struct {
-	ID        string      `json:"routeId"`
-	ClientID  string      `json:"clientID"`
-	Positions []Positions `json:"position"`
+	ID        string     `json:"routeId"`
+	ClientID  string     `json:"clientId"`
+	Positions []Position `json:"position"`
 }
-type Positions struct {
+
+type Position struct {
 	Lat  float64 `json:"lat"`
 	Long float64 `json:"long"`
 }
+
 type PartialRoutePosition struct {
-	ID        string    `json:"routeId"`
-	ClientID  string    `json:"clientId"`
-	Positions []float64 `json:"position"`
-	Finished  bool      `json:"finished"`
+	ID       string    `json:"routeId"`
+	ClientID string    `json:"clientId"`
+	Position []float64 `json:"position"`
+	Finished bool      `json:"finished"`
 }
 
-func (r *Route) loadPositions() error {
+func NewRoute() *Route {
+	return &Route{}
+}
+
+func (r *Route) LoadPositions() error {
 	if r.ID == "" {
 		return errors.New("route id not informed")
 	}
-	f, err := os.Open("destinations" + r.ID + ".txt")
+	f, err := os.Open("destinations/" + r.ID + ".txt")
 	if err != nil {
 		return err
 	}
@@ -45,7 +51,7 @@ func (r *Route) loadPositions() error {
 		if err != nil {
 			return nil
 		}
-		r.Positions = append(r.Positions, Positions{
+		r.Positions = append(r.Positions, Position{
 			Lat:  lat,
 			Long: long,
 		})
@@ -57,11 +63,10 @@ func (r *Route) ExportJsonPositions() ([]string, error) {
 	var route PartialRoutePosition
 	var result []string
 	total := len(r.Positions)
-
 	for k, v := range r.Positions {
 		route.ID = r.ID
 		route.ClientID = r.ClientID
-		route.Positions = []float64{v.Lat, v.Long}
+		route.Position = []float64{v.Lat, v.Long}
 		route.Finished = false
 		if total-1 == k {
 			route.Finished = true
