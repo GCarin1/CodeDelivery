@@ -3,7 +3,7 @@
 
 ## 🛠 Tecnologias
 
-As seguintes ferramentas foram usadas na construção do projeto:
+As seguintes ferramentas foram usadas na construção do projeto::
 
 
 -  **[Golang](https://golang.org)**
