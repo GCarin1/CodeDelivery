@@ -44,6 +44,6 @@ Depois que o merge da sua pull request ser feito, você pode deletar a sua branc
 Este projeto está sob a licença [MIT](./LICENSE).
 
 ---
-<h4 align=center>Sendo feito por <a href="https://www.linkedin.com/in/guilherme-carini/">Guilherme Carini ✨</a></a></h4>
+<h4 align=center>foi feito por <a href="https://www.linkedin.com/in/guilherme-carini/">Guilherme Carini ✨</a></a></h4>
 
 
